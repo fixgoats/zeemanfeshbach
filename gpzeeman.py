@@ -1,39 +1,26 @@
 import numpy as np
+from helperfunctions import *
 from numba import njit
 from scipy.integrate import RK45
 
 
-Ep = 1
-Em = 2
-R = 0.0016
+R = 0.012
 gamma = 0.2
-alphap = 0.0004
-alpham = 0.0004
-Gp = 0.04
-Gm = 0.04
-W = 1
-EXY = 0.0006
-Gamma = 0.4
+Gamma = 0.05
+W = Gamma / 2
+Gammas = Gamma / 5
+EXY = 0.0004
 P = 10
+xi = 20
 
+B = 0
 
-def eta(B):
-    return B
-
-
-def Gammasp(B):
-    return Gammas + eta(B)
-
-
-def Gammasm(B):
-    return Gammas - eta(B)
-
-
-
-@njit
-def normSqr(x):
-    return x.real**2 + x.imag**2
 
 def f(t, y):
-    return (
-            -1j*(E
+    return np.array(
+            
+
+
+y0 = np.array([0.01j, 0.01j, 0, 0]
+
+gpsolver = RK45(f, 0, y0)
